@@ -5,9 +5,9 @@ Framework Analysis
 
 The frameworks/technologies under analysis are as follows:
 
- - Pyramid 1.3 with Jinja2 2.6
- - Django 1.4 with Jinja2 2.6
- - html5 with JQuery 1.7
+- `Pyramid 1.3 with Jinja2 2.6 <http://static2.cnx.mulich.com/>`_
+- `Django 1.4 with Jinja2 2.6 <http://static1.cnx.mulich.com/>`_
+- `html5 with JQuery 1.7 <http://static0.cnx.mulich.com/>`_
 
 Templating
 ----------
@@ -87,8 +87,9 @@ Issues
 
 * Searching fine when done in the Python frameworks, but a decent
   amount of work would be required to make opensearch work within a
-  webpage. This is because opensearch is typically used through the
-  browser itself. We could add webview to the browsers opensearch
+  stand-alone webpage. This is because opensearch is typically used
+  through the browser itself.
+  We could add webview to the browsers opensearch
   registry, but IMHO this is still confusing for some users. The
   confusion occures because the opensearch interface is not
   standardized in all browsers. For example, Chrome uses shorcut

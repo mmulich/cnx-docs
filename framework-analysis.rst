@@ -27,7 +27,7 @@ Jinja2 simply uses `{{ super() }}`, which is actually more pythonic.
 
 Pyramid by default uses the TAL templating system. Many of the pyramid
 plugins also use the TAL templating system. But this has very little
-affect on the running application because each piece runs independent
+effect on the running application because each piece runs independent
 of the other. For example, Deform (a library for building web forms)
 uses TAL templates to produce the individual form elements. If a
 change needs to be made to one of the default templates, one can
@@ -50,8 +50,8 @@ dependend on the failover of the webserver. Similarly, the Python
 frameworks have failover throught the webserver, if they are being run
 under the WSGI specification.
 
-Conclusion
-----------
+Other
+-----
 
 I lean in the favor of using a server side framework (pyramid, django,
 flask, etc.), because it will allow the developer to have a higher
@@ -84,6 +84,7 @@ Issues
   URLs, which may not be the same as the webview's URLs. In each of
   these frameworks the content from the rhaptos repository needs to be
   adjusted. This is a PITA in all the frameworks.
+
 * Searching fine when done in the Python frameworks, but a decent
   amount of work would be required to make opensearch work within a
   webpage. This is because opensearch is typically used through the

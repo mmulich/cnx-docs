@@ -6,8 +6,11 @@ Framework Analysis
 The frameworks/technologies under analysis are as follows:
 
 - `Pyramid 1.3 with Jinja2 2.6 <http://static2.cnx.mulich.com/>`_
+  (`webview <https://github.com/Connexions/webview>`_)
 - `Django 1.4 with Jinja2 2.6 <http://static1.cnx.mulich.com/>`_
+  (`cnx-django-webview <https://github.com/pumazi/cnx-django-webview>`_)
 - `html5 with JQuery 1.7 <http://static0.cnx.mulich.com/>`_
+  (`cnx-html5-webviewer <https://github.com/pumazi/cnx-html5-webviewer>`_)
 
 Templating
 ----------

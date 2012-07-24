@@ -5,6 +5,9 @@ Framework Analysis
 
 The frameworks/technologies under analysis are as follows:
 
+- `Responsive with Twitter Bootstrap atop Pyramid with Jinja2
+  <http://static3.cnx.mulich.com>`_
+  (`rhaptos_viewer <https://github.com/pumazi/rhaptos_viewer>`_)
 - `Pyramid 1.3 with Jinja2 2.6 <http://static2.cnx.mulich.com/>`_
   (`webview <https://github.com/Connexions/webview>`_)
 - `Django 1.4 with Jinja2 2.6 <http://static1.cnx.mulich.com/>`_

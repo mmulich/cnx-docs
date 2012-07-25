@@ -48,6 +48,9 @@ point, the content we are working with from cnx.org is clean and
 clear. However, we still have an issue with the module content body
 references (See the issues section).
 
+Reusing a snippet of markup in Jinja2 is fairly easy with the Jinja2's
+include statement. ()
+
 Failover
 --------
 
@@ -73,7 +76,7 @@ introduction of html5's javascript history. Twitter currently uses the
 hashbang URL structure, but is in the process of moving away from this
 URL format. In order to make our html5 version of this code work
 without hashbangs we will need to put a route aware server in front of
-it. Or, we can could an apache rewrite rule on the server to fake the
+it. Or, we could use an apache rewrite rule on the server to fake the
 URLs.
 
 Some of the things I believe we need to answer before we make a
@@ -101,3 +104,11 @@ Issues
   standardized in all browsers. For example, Chrome uses shorcut
   keyword based searching, which leads users to often believe the same
   search boxes that exist on IE and Firefox do not exist in Chrome.
+
+* There doesn't appear to be an easy way to acquire Collection
+  data. Many of the `documented API calls for Collections
+  <https://trac.rhaptos.org/trac/rhaptos/wiki/API/WebServices#CoursesCollections>`_
+  do not exist. This has limited the ability to get meaningful data
+  about the collection. For the time being the some of the examples
+  use methods that are built on the collection model to produce an
+  html content tree. This is not the ideal solution.

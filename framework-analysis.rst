@@ -71,41 +71,62 @@ because there are many unknowns. At this point, the content we are
 working with from cnx.org is clean and clear. However, we still have
 an issue with the module content body references (See the issues section).
 
-
-Failover
---------
-
-All of these frameworks have failover. The static html5 solution is
-dependend on the failover of the webserver. Similarly, the Python
-frameworks have failover throught the webserver, if they are being run
-under the WSGI specification.
-
-Other
------
+Html5 and Jquery
+----------------
 
 I lean in the favor of using a server side framework (pyramid, django,
 flask, etc.), because it will allow the developer to have a higher
 level of control over the end result. Using JQuery with a static
 html5 page does not give us enough control over the display.
 
-Currently, the only downside to using html5 with JQuery are the
-URLs. This solution uses the hashbang URL formatting. This formatting
-was initially introduced by Google to allow them to index pages that
-contain AJAX acquired content. The hashbang syntax is used by many new
-projects, but it is quickly being pushed out of favor with the
-introduction of html5's javascript history. Twitter currently uses the
-hashbang URL structure, but is in the process of moving away from this
-URL format. In order to make our html5 version of this code work
-without hashbangs we will need to put a route aware server in front of
-it. Or, we could use an apache rewrite rule on the server to fake the
-URLs.
+Some downsides to using html5 with JQuery are:
+
+1. The URLs use the hashbang URL formatting. This formatting
+   was initially introduced by Google to allow this type of dynamic
+   client-side content to be indexed. Since then, people have found
+   that they can get way with using the hashbang system to simplify
+   their webserver to a few files and a lot of javascript.
+   The hashbang syntax is used by many new projects, but it is quickly
+   being pushed out of favor with the introduction of html5's
+   javascript history. Twitter currently uses the hashbang URL
+   structure, but is in the process of moving away from this
+   URL format. In order to make the html5 case work
+   without hashbangs we will need to put a route aware server in front
+   of it. Or, we could use an Apache rewrite rule on the server to
+   fake the URLs.
+2. Failover can be tricky. We can deliver a page raw from the server
+   with a message saying "We are having issues, please ..." or an
+   empty page. If we take the first approach, the user will know when
+   something has gone wrong. However, if they are on a slow
+   connection or their connection the the repo (cnx.org) is slow, then
+   they will see this message before every page load, which will be
+   extremely annoying and confusing. If we were to take the second
+   option and the page fails to load properly, the user ends up with
+   nothing and has no clear path to a resolution.
+3. Javascript is IMHO a hard language to debug... Therefore, I think
+   it should be minimally used. I prefer to see javascript used after
+   a page has been setup on the server. The client shouldn't be
+   responsible for assembling the page. But I do believe that the
+   client can be responsible enough to update various elements of the page.
+
+Reliability
+-----------
+
+All of these frameworks have failover. The static html5 solution is
+dependend on the failover of the webserver. Similarly, the Python
+frameworks have failover throught the webserver, if they are being run
+under the WSGI specification.
+
+Questions
+---------
 
 Some of the things I believe we need to answer before we make a
-decision on which frame work to go with are: 1) where is this
-application going to be run? 2) How far are we going to take this?
-3) Are we going to be reusing any of this implementation in other
-applications?
+decision on which frame work to go with are:
 
+1. Where is this application going to be run?
+2. How far are we going to take this?
+3. Are we going to be reusing any of code/markup from this
+   implementation or other appliations (e.g. the editor)?
 
 Issues
 ------

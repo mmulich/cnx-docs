@@ -15,21 +15,27 @@ The frameworks/technologies under analysis are as follows:
 - `html5 with JQuery 1.7 <http://static0.cnx.mulich.com/>`_
   (`cnx-html5-webviewer <https://github.com/pumazi/cnx-html5-webviewer>`_)
 
-Templating
-----------
+Templating with Jinja2 and Html5
+--------------------------------
 
-In the Python framework cases I choose the Jinja2 templating
-framework, because it is 1) widely used across many Python web
-frameworks 2) easy to understand (extend, include, blocks, etc.) and
-in many cases an intuitive person can use it without constantly
-referencing documentation and 3) easy to extend and reuse the
-extensions across other applications.
+In the Python framework cases I choose the `Jinja2 templating
+framework <http://jinja.pocoo.org/docs/>`_,
+because it is:
 
-Django uses a slightly basterdized version of Jinja2, but for the most
-part, the syntax remains the same. In my exploration so far, I have
-run into one small difference. Django looks up the parent block
-information using the `{{ block.super }}` statement, while vanilla
-Jinja2 simply uses `{{ super() }}`, which is actually more pythonic.
+1. Widely used across many Python web frameworks
+2. Easy to understand (extend, include, blocks, etc.) and 
+   in many cases an intuitive person can use it without constantly
+   referencing documentation
+3. Easy to extend and reuse the extensions across other applications.
+
+In the Pyramid case(s) I am using the `pyramid_jinja2
+<http://pypi.python.org/pypi/pyramid_jinja2>`_ integration
+package, because by default Pyramid ships with TAL. There is word that
+the framework will drop support for a templating language out of the
+box, so there is no need to worry if one way is the best way. The
+pyramid_jinja2 package doesn't do anything fancy. It simply pulls in
+the Jinja2 package and registers a template renderer for files with
+the `.jinja2` extension.
 
 Pyramid by default uses the TAL templating system. Many of the pyramid
 plugins also use the TAL templating system. But this has very little
@@ -41,15 +47,30 @@ either use the TAL template as a base or rewrite it in Jinja2. And
 because these widgets aren't large pieces of code, this is often a
 medial task.
 
-The html5 with JQuery solution is not mentioned here because the
-templating system is JQuery itself. I know many developers dislike
-building content client side, because there are many unknowns. At this
-point, the content we are working with from cnx.org is clean and
-clear. However, we still have an issue with the module content body
-references (See the issues section).
+Django uses a slightly basterdized version of Jinja2, but for the most
+part, the syntax remains the same. In my exploration so far, I have
+run into one small difference, however I'm fairly confident that there
+are other differences. For example, Django looks up the parent block
+information using the `{{ block.super }}` statement, while vanilla
+Jinja2 simply uses `{{ super() }}`, which is actually more pythonic.
 
 Reusing a snippet of markup in Jinja2 is fairly easy with the Jinja2's
-include statement. ()
+include statement. And for more detailed situations, Jinja2 provides
+macros that often contain more logic. I know that one of the primary
+concerns is to keep logic out of the templates. I would say that
+sometimes it can't be helped, but those cases are few and far
+between. In the case that more logic is needed, a macro can be used to
+isolate that piece of logic rather than jamming it into the
+template. These include and macro features could make it nice for us
+to find a happy medium between producing markup in code or in the templates.
+
+
+In the html5 with JQuery solution the templating system is JQuery
+itself. I know many developers dislike building content client side,
+because there are many unknowns. At this point, the content we are
+working with from cnx.org is clean and clear. However, we still have
+an issue with the module content body references (See the issues section).
+
 
 Failover
 --------
